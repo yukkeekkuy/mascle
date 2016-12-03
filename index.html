@@ -21,11 +21,11 @@
           <form novalidate name="addMember" ng-submit="main.addMember(member)">
             <p>
               名前: <input type="text" name="newMemberName" ng-model="member.name" required>
-              <span ng-show="addMember.newMemberName.$error.required"></span>
+              <span ng-show="addMember.newMemberName.$error.required">必須</span>
             </p>
             <p>
               スコア: <input type="number" name="newMemberScore" ng-model="member.score" required>
-              <span ng-show="addMember.newMemberScore.$error.required"></span>
+              <span ng-show="addMember.newMemberScore.$error.required">必須</span>
             </p>
             <input type="submit" name="newMemberSubmit" value="登録">
           </form>

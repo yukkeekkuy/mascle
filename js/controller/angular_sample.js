@@ -32,13 +32,20 @@ myAppModule.controller('mainCtrl', function() {
     };
   };
   // メンバー追加
+  // もっといい書き方がありそう
   this.addMember = function(member) {
-    console.log(member);
-    this.data.members.push({"name":member.name, "score":member.score})
+    if (typeof member === 'undefined') {
+      alert("入力項目を確認してください");
+      return;
+    };
+    if (!member.name || !member.score) {
+      alert("入力項目を確認してください");
+      return;
+    }
+    this.data.members.push({"name":member.name, "score":member.score});
   };
   // メンバー削除
   this.deleteMember = function(index) {
-    console.log(index);
     this.data.members.splice(index, 1);
   };
 });
