@@ -1,0 +1,25 @@
+/* ▼キャプション付き画像全体を囲むボックスの装飾 */
+figure {
+    display: inline-block;   /* インラインブロック化 */
+    margin: 0px 3px 7px 0px; /* 外側に余白を追加(※右に3px・下に7px) */
+    background-color: #ccb;  /* 背景色 */
+}
+/* ▼画像に対する装飾 */
+figure img {
+    display: block;          /* 余計な余白が出ないようにする */
+    margin: 4px;             /* 画像の周囲に3pxの余白を追加 */
+    width: 170px;
+}
+/* ▼キャプションに対する装飾 */
+figcaption {
+    font-size: 0.9em;        /* 文字サイズを90%に */
+    text-align: center;      /* 中身をセンタリング */
+}
+
+/* ▼キャプションに対する装飾 */
+figcaption.no {
+}
+
+/* ▼キャプションに対する装飾 */
+figcaption.name {
+}
