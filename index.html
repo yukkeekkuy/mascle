@@ -1,0 +1,58 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+  </head>
+  <body>
+    <header style="background: red">
+      <div>
+        <p>header領域</p>
+      </div>
+    </header>
+    <div>
+      <!-- 画像表示領域 -->
+      <div name="pic">
+        <h1>グレートマッスル</h1>
+        <h2>シリーズ1</h2>
+        <ul>
+          <li>
+            <img src="img/mascle.jpeg" width="15%"/>
+            <img src="img/mascle.jpeg" width="15%"/>
+            <img src="img/mascle.jpeg" width="15%"/>
+          </li>
+          <li>
+            <img src="img/mascle.jpeg" width="15%"/>
+            <img src="img/mascle.jpeg" width="15%"/>
+            <img src="img/mascle.jpeg" width="15%"/>
+          </li>
+        </ul>
+        <h2>シリーズ2</h2>
+        <ul>
+          <li>
+            <img src="img/mascle.jpeg" width="15%"/>
+            <img src="img/mascle.jpeg" width="15%"/>
+            <img src="img/mascle.jpeg" width="15%"/>
+          </li>
+          <li>
+            <img src="img/mascle.jpeg" width="15%"/>
+            <img src="img/mascle.jpeg" width="15%"/>
+            <img src="img/mascle.jpeg" width="15%"/>
+          </li>
+        </ul>
+      </div>
+      <!-- 画像表示領域 -->
+      <!-- インフォメーション -->
+      <div name="info">
+        <label>Name:</label>
+        <input type="text" ng-model="yourName" placeholder="あなたの名前を入力してください">
+        <h1>Hello {{yourName}}!</h1>
+      </div>
+      <!-- インフォメーション -->
+    </div>
+    <footer style="background: blue">
+      <div>
+        <p>footer領域</p>
+      </div>
+    </footer>
+  </body>
+</html>
