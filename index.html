@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <meta charset=“utf-8”>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+    <script src="js/controller/main.js"></script>
+    <link rel="stylesheet" href="figure.css" type="text/css">
+  </head>
+  <body>
+    <header style="background: red">
+      <div>
+        <p>header領域</p>
+      </div>
+    </header>
+    <!-- 画像表示領域 -->
+    <div name="pic" ng-controller="mainCtrl as main">
+      <h1>グレートマッスル</h1>
+      <div ng-repeat="season in main.data.info">
+        <h2>{{season.title}}</h2>
+        <div class="kinkeshi">
+          <figure ng-repeat="member in season.members">
+            <figcaption class="no">No. {{member.no}}</figcaption>
+            <img src={{member.url}}>
+            <figcaption class="name">{{member.name}}</figcaption>
+          </figure>
+        </div>
+      </div>
+      <!-- 画像表示領域 -->
+      <!-- インフォメーション -->
+      <div name="info">
+        <label>Name:</label>
+        <input type="text" ng-model="yourName" placeholder="あなたの名前を入力してください">
+        <h1>Hello {{yourName}}!</h1>
+      </div>
+      <!-- インフォメーション -->
+    </div>
+    <footer style="background: blue">
+      <div>
+        <p>footer領域</p>
+      </div>
+    </footer>
+  </body>
+</html>
