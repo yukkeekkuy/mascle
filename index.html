@@ -1,8 +1,9 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="myApp">
   <head>
     <meta charset=“utf-8”>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0-rc.2/angular.min.js"></script>
+    <script src="js/controller/angular_sample.js"></script>
   </head>
   <body>
     <header style="background: red">
@@ -11,44 +12,50 @@
       </div>
     </header>
     <div>
-      <!-- 画像表示領域 -->
-      <div name="pic">
-        <h1>グレートマッスル</h1>
-        <h2>シリーズ1</h2>
-        <ul>
-          <li>
-            <img src="img/mascle.jpeg" width="15%"/>
-            <img src="img/mascle.jpeg" width="15%"/>
-            <img src="img/mascle.jpeg" width="15%"/>
-          </li>
-          <li>
-            <img src="img/mascle.jpeg" width="15%"/>
-            <img src="img/mascle.jpeg" width="15%"/>
-            <img src="img/mascle.jpeg" width="15%"/>
-          </li>
-        </ul>
-        <h2>シリーズ2</h2>
-        <ul>
-          <li>
-            <img src="img/mascle.jpeg" width="15%"/>
-            <img src="img/mascle.jpeg" width="15%"/>
-            <img src="img/mascle.jpeg" width="15%"/>
-          </li>
-          <li>
-            <img src="img/mascle.jpeg" width="15%"/>
-            <img src="img/mascle.jpeg" width="15%"/>
-            <img src="img/mascle.jpeg" width="15%"/>
-          </li>
-        </ul>
+      <!-- Angularサンプル -->
+      <h1>練習</h1>
+      <h2>サンプル1</h2>
+      <div ng-controller="mainCtrl as main">
+        <!-- 登録フォームエリア -->
+        <div>
+          <form novalidate name="addMember" ng-submit="main.addMember(member)">
+            <p>
+              名前: <input type="text" name="newMemberName" ng-model="member.name" required>
+              <span ng-show="addMember.newMemberName.$error.required"></span>
+            </p>
+            <p>
+              スコア: <input type="number" name="newMemberScore" ng-model="member.score" required>
+              <span ng-show="addMember.newMemberScore.$error.required"></span>
+            </p>
+            <input type="submit" name="newMemberSubmit" value="登録">
+          </form>
+        </div>
+        <!-- 一覧表示エリア -->
+        <div>
+          <ul>
+            <li ng-repeat="member in main.data.members">
+              <p>
+                Name: {{member.name}}</br>
+                Score: {{member.score}}
+                <button ng-click="main.culc('plus', $index)">+1</button>
+                <button ng-click="main.culc('minus', $index)">-1</button>
+                <button ng-click="main.deleteMember($index)">削除</button>
+              </p>
+            </li>
+          </ul>
+        </div>
       </div>
-      <!-- 画像表示領域 -->
-      <!-- インフォメーション -->
-      <div name="info">
-        <label>Name:</label>
-        <input type="text" ng-model="yourName" placeholder="あなたの名前を入力してください">
-        <h1>Hello {{yourName}}!</h1>
+      <h2>サンプル2</h2>
+      <div ng-controller="mainCtrl as main">
+        <form novalidate name="sampleForm" ng-submit="main.sampleSubmit(data)">
+          <input name="name" ng-model="main.data.user.name" type="text" required>
+          <span ng-show="sampleForm.name.$error.required">必須</span>
+          <p>あなたの名前は{{data.user.name}}？</p>
+          <input name="sampleName" type="submit" value="その通り">
+        </form>
+        {{main.data.user.decidedName}}
       </div>
-      <!-- インフォメーション -->
+      <!-- Angularサンプル -->
     </div>
     <footer style="background: blue">
       <div>
